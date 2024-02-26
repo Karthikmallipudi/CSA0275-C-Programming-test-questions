@@ -1,0 +1,28 @@
+#include <stdio.h>
+
+int main() {
+    // Declare variables
+    int number, originalNumber, newNumber = 0, placeValue = 1;
+
+    // Input the number
+    printf("Enter an integer: ");
+    scanf("%d", &number);
+
+    // Save the original number for comparison at the end
+    originalNumber = number;
+
+    // Increment each digit by 1
+    while (number != 0) {
+        int digit = number % 10;
+        digit = (digit + 1) % 10; // Increment the digit by 1, and handle wrapping from 9 to 0
+        newNumber = newNumber + digit * placeValue;
+        placeValue *= 10;
+        number /= 10;
+    }
+
+    // Output the result
+    printf("The original number was: %d\n", originalNumber);
+    printf("The new number with digits incremented by 1 is: %d\n", newNumber);
+
+    return 0;
+}
